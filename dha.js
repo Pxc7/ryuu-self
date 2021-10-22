@@ -365,7 +365,7 @@ return Math.floor(angka)
                     let asw = './tmp/stik' + names + '.webp'
                     exec(`ffmpeg -i ${filess} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${asw}`, (err) => {
                         let media = fs.readFileSync(asw)
-                        dha.sendMessage(to, media, MessageType.sticker,{quoted: floc})
+                        dha.sendMessage(to, media, MessageType.sticker,{quoted: mek})
                         fs.unlinkSync(filess)
                         fs.unlinkSync(asw)
                     });
@@ -837,7 +837,7 @@ let ge = await dha.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-					},{quoted: floc})
+					},{quoted: mek})
 dha.relayWAMessage(ge)
 kuis.splice(game.getKuisPosi(from, kuis), 1)
 }
@@ -857,7 +857,7 @@ let ge = await dha.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-					},{quoted: floc})
+					},{quoted: mek})
 dha.relayWAMessage(ge)
 buriq.splice(game.getSAPosi(from, buriq), 1)
 }
@@ -878,7 +878,7 @@ let ge = await dha.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-					},{quoted: floc})
+					},{quoted: mek})
 dha.relayWAMessage(ge)
 tebakbendera.splice(game.getTBPosi(from, tebakbendera), 1)
 }
@@ -920,7 +920,7 @@ let ge = await dha.prepareMessageFromContent(from, {
 ],
 headerType: 1
 },
-					},{quoted: floc})
+					},{quoted: mek})
 dha.relayWAMessage(ge)
 mtk.splice(game.getMtkPosi(from, mtk), 1)
 }
@@ -970,7 +970,7 @@ if (isGroup && !isGroupAdmins && isBotGroupAdmins) {
                             credentials: 'include',
                             body: form
                         }
-                        var get_result = await fetchJson(`https://api.lolhuman.xyz/api/nsfwcheck?apikey=${lol.key}`, {...options })
+                        var get_result = await fetchJson(`https://api.lolhuman.xyz/api/nsfwcheck?apikey=14b8e6542f9079f0b18d72a6`, {...options })
                         fs.unlinkSync(filePath)
                         var get_resulttt = get_result.result
                         var is_nsfw = "No"
@@ -1209,7 +1209,7 @@ reply(`Tidak ada sesi yg berlangsung`);
                 jawaban = sambungkata[sender.split('@')[0]]
                 userAnswer = budy.toLowerCase()
                 if (userAnswer.startsWith(jawaban[jawaban.length - 1])) {
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/sambungkata?apikey=${lol.key}&text=${userAnswer}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/sambungkata?apikey=14b8e6542f9079f0b18d72a6&text=${userAnswer}`)
                     wahyu = get_result.result
                     await dha.sendMessage(from, wahyu, MessageType.text, { quoted: mek }).then(() => {
                     	var htgm2 = randomNomor(50000)
@@ -1578,7 +1578,7 @@ break
               case 'tebakbendera':{
                 if (!isGroup)return reply(mess.OnlyGrup)
                 if (game.isTebakBendera(from, tebakbendera)) return reply(`Masih ada soal yang belum di selesaikan`)
-                let anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/bendera?apikey=${lol.key}`)
+                let anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/bendera?apikey=14b8e6542f9079f0b18d72a6`)
                 let anih = anu.result.name.toLowerCase()
                 game.addtebakbendera(from, anih, gamewaktu, tebakbendera)
                 const petunjuk = anu.result.name.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1602,9 +1602,9 @@ jsonData = JSON.parse(ppcp);
 randIndex = Math.floor(Math.random() * jsonData.length);
 randKey = jsonData[randIndex];
 Laki = await getBuffer(randKey.male)
-dha.sendMessage(from, Laki, image,  { caption: `${kont}`, quoted: floc, thumbnail: miku, contextInfo: { mentionedJid: [num]}})
+dha.sendMessage(from, Laki, image,  { caption: `${kont}`, quoted: mek, thumbnail: miku, contextInfo: { mentionedJid: [num]}})
 Cewe = await getBuffer(randKey.female)
-dha.sendMessage(from, Cewe, image, { caption: `${kint}`, quoted: floc, thumbnail: miku, contextInfo: { mentionedJid: [num]}})
+dha.sendMessage(from, Cewe, image, { caption: `${kint}`, quoted: mek, thumbnail: miku, contextInfo: { mentionedJid: [num]}})
 break
         case 'owner':
                sendKontak(from, `${owner}`, `${ownerName}`, 'Sibukk!!')
@@ -1645,8 +1645,8 @@ Pilih Menu OTP Dibawah Ini!`
                const munir = fs.readFileSync('ayanokoji.jpg')
                verif = `Jangan Berikan Kode Ke Siapapun!\nKodenya Adalah : ${pewe}`
                hayuk = `*Send Kode, Dan Reply Pesan Ini!*`
-               dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, munir, image, {quoted: floc, caption: verif })
-               dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, hayuk, MessageType.text, {quoted: floc})
+               dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, munir, image, {quoted: mek, caption: verif })
+               dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, hayuk, MessageType.text, {quoted: mek})
                break
                case 'emojilist':
 if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
@@ -2275,7 +2275,7 @@ await dha.sendMessage(from, gbuttonan, MessageType.buttonsMessage, {
                     if (args.length == 0) return reply(`Contoh: ${prefix + command} tahu`)
                     jawaban = sambungkata[sender.split('@')[0]]
                     ini_txt = args.join(" ")
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/sambungkata?apikey=${lol.key}&text=${ini_txt}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/sambungkata?apikey=14b8e6542f9079f0b18d72a6&text=${ini_txt}`)
                     get_result = get_result.result
                     await dha.sendMessage(from, `•-- *Sambung Kata* --•\n Bot: ${get_result}\n\nSilakan Menjawab Dari Huruf Belakangnya`, MessageType.text, { quoted: mek }).then(() => {
                         sambungkata[sender.split('@')[0]] = get_result.toLowerCase()
@@ -2292,11 +2292,11 @@ await dha.sendMessage(from, gbuttonan, MessageType.buttonsMessage, {
    garis = `───────────────`
 				if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
 				teksnya = `${garis}\n*TOTAL REGIST*\n[ 🌹 ]total : ${registercuy.length}\n${garis}\n${garis}\n*TOTAL RATTING*\n[ 🌹 ]total : ${regisbintang.length}\n${garis}\n${garis}\n*TOTAL SUKA*\n[ 🌹 ]total : ${LK.length}\n${garis}\n${garis}\n*TOTAL TIDAK SUKA*\n[ 🌹 ]total : ${DSLK.length}\n${garis}\n${garis}\n*TOTAL NILAI*\n[ 🌹 ]total : ${userlike.length}\n${garis}`
-				dha.sendMessage(from, miku, image, {quoted: floc, caption: teksnya})
+				dha.sendMessage(from, miku, image, {quoted: mek, caption: teksnya})
 				break
 				case 'quotesanime':
 		if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
-                    quotes = await fetchJson(`http://api.lolhuman.xyz/api/random/quotesnime?apikey=${lol.key}`)
+                    quotes = await fetchJson(`http://api.lolhuman.xyz/api/random/quotesnime?apikey=14b8e6542f9079f0b18d72a6`)
                     quotes = quotes.result
                     quote = quotes.quote
                     char = quotes.character
@@ -2306,7 +2306,7 @@ await dha.sendMessage(from, gbuttonan, MessageType.buttonsMessage, {
                     quotesnya = `${quote}\n~*${char}*\n\nSource : *${anime}*`
 buttons = [{buttonId:`${prefix}quotesanime`,buttonText:{displayText:'Try Again'},type:1},{buttonId:`${prefix}menu`,buttonText:{displayText:'HOME'},type:1}]
                buttonsMessage = { contentText: `${jawabya}`, footerText: `${quotesnya}`,  buttons: buttons, headerType: 1 }
-               prep = await dha.prepareMessageFromContent(from,{buttonsMessage}, {quoted: floc})
+               prep = await dha.prepareMessageFromContent(from,{buttonsMessage}, {quoted: mek})
                dha.relayWAMessage(prep)
                     break
                     case 'bercocoktanam':
@@ -2328,7 +2328,7 @@ buttons = [{buttonId:`${prefix}quotesanime`,buttonText:{displayText:'Try Again'}
                     case 'spotify':
                     if (args.length == 0) return reply(`Example: ${prefix + command} https://open.spotify.com/track/0ZEYRVISCaqz5yamWZWzaA`)
                     url = args[0]
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/spotify?apikey=${lol.key}&url=${query}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/spotify?apikey=14b8e6542f9079f0b18d72a6&url=${query}`)
                     await dha.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.title} - Riu~.mp3`, quoted: mek })
                     break
                     case 'spotifysearch':
@@ -2357,7 +2357,7 @@ buttons = [{buttonId:`${prefix}quotesanime`,buttonText:{displayText:'Try Again'}
                 if (args.length < 2) return reply(`Kirim perintah *${command}* _query_`)
                 reply(mess.wait)
                 query = args.join(" ")
-             get_result = await fetchJson(`https://api.lolhuman.xyz/api/otakudesusearch?apikey=${lol.key}&query=${query}`)
+             get_result = await fetchJson(`https://api.lolhuman.xyz/api/otakudesusearch?apikey=rmzbot&query=${query}`)
                     get_result = get_result.result   
                         let list = []
                         let startnum = 1
@@ -2611,7 +2611,7 @@ case 'sticker2':
 					case 'kuis':{
                 if (!isGroup)return reply(mess.OnlyGrup)
                 if (game.isKuis(from, kuis)) return reply(`Masih ada soal yang belum di selesaikan`)
-                let anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/jenaka?apikey=${lol.key}`)
+                let anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/jenaka?apikey=14b8e6542f9079f0b18d72a6`)
                 let anih = anu.result.answer.toLowerCase()
                 game.addkuis(from, anih, gamewaktu, kuis)
                 const petunjuk = anu.result.answer.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -3130,7 +3130,7 @@ pp_riu = await getBuffer(pp_user)
                     if (alasan != "") {
                         ini_txt += "Dengan alasan " + alasan
                     }
-                    dha.sendMessage(from, pp_riu, image, { quoted: floc, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: ini_txt })
+                    dha.sendMessage(from, pp_riu, image, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: ini_txt })
                     break
 		case 'apakah':
 		if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
@@ -3194,7 +3194,7 @@ pp_riu = await getBuffer(pp_user)
               imageMsg = ( await dha.prepareMessage(from, fs.readFileSync(`./image/109.jpg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
               buttonsMessage = {footerText:`KRITIK - ULASAN`, imageMessage: imageMsg,
               contentText:`Berikut Adalah Data Yang Sudah Di Simpan Oleh Bot, Silahkan Di Lihat.\n\n⭐ ${SJ1.length}\n⭐⭐ ${SJ2.length}\n⭐⭐⭐ ${SJ3.length}\n⭐⭐⭐⭐ ${SJ4.length}\n⭐⭐⭐⭐⭐ ${SJ5.length}\n\nData Ini Di Peroleh Dari Developer Hingga Pada Tanggal *${tampilHari}*`,buttons,headerType:4}
-              prep = await dha.prepareMessageFromContent(from,{buttonsMessage},{quoted: floc})
+              prep = await dha.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
               dha.relayWAMessage(prep)
               break
               case '⭐':
@@ -3259,7 +3259,7 @@ hard = `Ini Kak Kontak Partner Saya 😇`
   hehex = await dha.sendMessage(from, {
         "displayName": `100 kontak`,
         "contacts": ini_list
-        }, 'contactsArrayMessage', { quoted: floc })
+        }, 'contactsArrayMessage', { quoted: mek })
         reply(hard)
         break
 					case 'jadian':
@@ -3601,8 +3601,8 @@ break
 			random = Math.floor(Math.random() * 17) + 1
 		yahaha = fs.readFileSync(`./audionya/${random}.mp3`)
 		hayuk = `*Send Kode, Dan Reply Pesan Ini!*`
-		dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, hayuk, MessageType.text, {quoted: floc})
-			dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, yahaha, audio, {quoted: floc, ptt: true})
+		dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, hayuk, MessageType.text, {quoted: mek})
+			dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, yahaha, audio, {quoted: mek, ptt: true})
 			break
               case 'imut':
 				if (!isQuotedAudio) return reply('Tag audio/vn nya!')
@@ -3831,7 +3831,7 @@ break
               try {
               if (!isUrl(q)) return reply('Linknya?')
               if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
-              res = await axios.get(`https://api.lolhuman.xyz/api/instagram2?apikey=${lol.key}&url=${args[0]}`)
+              res = await axios.get(`https://api.lolhuman.xyz/api/instagram2?apikey=14b8e6542f9079f0b18d72a6&url=${args[0]}`)
               const data = res.data.result
               for (let i = 0; i < data.media.length; i++) {
               sendMediaURL(from, data.media[i], data.caption, {thumbnail: miku})
@@ -3886,7 +3886,7 @@ break
              if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
                     if (args.length == 0) return reply(`Contoh: ${prefix + command} loli`)
                     query = args.join(" ")
-                    ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/gimage?apikey=${lol.key}&query=${query}`)
+                    ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/gimage?apikey=14b8e6542f9079f0b18d72a6&query=${query}`)
                     dha.sendMessage(from, ini_buffer, image, { quoted: fvideo })
                     break
              case 'delvote':
@@ -3941,7 +3941,7 @@ if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* unt
               if (!q) return reply('Linknya?')
               if (!q.includes('tiktok')) return reply(mess.error.Iv)
               query = args.join("")
-              data = await fetchJson(`https://api.lolhuman.xyz/api/tiktok?apikey=${lol.key}&url=${query}`)
+              data = await fetchJson(`https://api.lolhuman.xyz/api/tiktok?apikey=14b8e6542f9079f0b18d72a6&url=${query}`)
               result = `🚹 *Nickname*: ${data.result.author.nickname}\n❤️ *Like*: ${data.result.statistic.diggCount}\n?? *Komentar*: ${data.result.statistic.commentCount}\n📭 *Share*: ${data.result.statistic.shareCount}\n🎞️ *Views*: ${data.result.statistic.playCount}\n📝 *Desc*: ${data.result.title}`
               buttons = [{buttonId: `${prefix}buttons3 ${q}`,buttonText:{displayText: `🎥Mp4`},type:1},{buttonId:`${prefix}buttons4 ${q}`,buttonText:{displayText:'🎶Audio'},type:1}, {buttonId:`${prefix}toktoknowm ${q}`,buttonText:{displayText:'NO WM'},type:1}]
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(data.result.thumbnail))
@@ -4174,9 +4174,9 @@ if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* unt
        case 'nhdl':
        if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
              if (!q) return reply('kodenya?')
-             get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentai/${q}?apikey=${lol.key}`)
+             get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentai/${q}?apikey=14b8e6542f9079f0b18d72a6`)
              ini_image = await getBuffer(get_result.result.image[0])
-             data = await fetchJson(`https://api.lolhuman.xyz/api/nhentaipdf/${q}?apikey=${lol.key}`)
+             data = await fetchJson(`https://api.lolhuman.xyz/api/nhentaipdf/${q}?apikey=14b8e6542f9079f0b18d72a6`)
              pdf = await getBuffer(data.result)
              dha.sendMessage(from, pdf, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${get_result.result.title_romaji}.pdf`, thumbnail: ini_image })
              break
@@ -4230,7 +4230,7 @@ if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* unt
                    if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
                     if (args.length == 0) return reply(`Contoh: ${prefix + command} https://www.youtube.com/watch?v=qZIQAk-BUEc`)
                     ini_link = args[0]
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lol.key}&url=${ini_link}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/ytaudio2?apikey=14b8e6542f9079f0b18d72a6&url=${ini_link}`)
                     get_result = get_result.result
                     reply("silakan tunggu.... ")
                     get_audio = await getBuffer(get_result.link)
@@ -4267,7 +4267,7 @@ break
      if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
                     if (args.length == 0) return reply(`Example: ${prefix + command} https://www.youtube.com/watch?v=qZIQAk-BUEc`)
                     ini_link = args[0]
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lol.key}&url=${ini_link}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/ytvideo2?apikey=14b8e6542f9079f0b18d72a6&url=${ini_link}`)
                     reply(`Silakan Tunggu.....`)
                     get_result = get_result.result
                     get_audio = await getBuffer(get_result.link)
@@ -4277,7 +4277,7 @@ break
                 if (args.length < 1) return reply(`Penggunaan ${command} _link tiktok_`)
                 if (!isUrl(args[1]) && !args[1].includes('tiktok.com')) return reply(mess.error.Iv)
                 reply(mess.wait)
-                axios.get(`https://api.lolhuman.xyz/api/tiktok?apikey=${lol.key}&url=${args[1]}`)
+                axios.get(`https://api.lolhuman.xyz/api/tiktok?apikey=14b8e6542f9079f0b18d72a6&url=${args[1]}`)
                 .then(({data}) => {
                     let { title, description, duration, link } = data.result
                     let capt = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
@@ -4300,13 +4300,13 @@ xinz.sendVideo(from, yoi, capt, msg)
 })
                 })
                 .catch(() => {
-                    axios.get(`https://api.lolhuman.xyz/api/tiktok2?apikey=${lol.key}&url=${args[1]}`)
+                    axios.get(`https://api.lolhuman.xyz/api/tiktok2?apikey=14b8e6542f9079f0b18d72a6&url=${args[1]}`)
                     .then(({data}) => {
                         sendFileFromUrl(from, data.result, '', msg)
                         limitAdd(sender, limit)
                     })
                     .catch(() => {
-                        axios.get(`https://api.lolhuman.xyz/api/tiktok3?apikey=${lol.key}&url=${args[1]}`)
+                        axios.get(`https://api.lolhuman.xyz/api/tiktok3?apikey=14b8e6542f9079f0b18d72a6&url=${args[1]}`)
                         .then(({data}) => {
                             sendFileFromUrl(from, data.result, '', msg)
                             limitAdd(sender, limit)
@@ -4333,7 +4333,7 @@ xinz.sendVideo(from, yoi, capt, msg)
  if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
   if (!isUrl(args[0]) && !args[0].includes('tiktok')) return reply('Link Error')
   ini_link = args[0]
-  ayo = await getBuffer(`http://api.lolhuman.xyz/api/tiktokmusic?apikey=${lol.key}&url=${ini_link}`)
+  ayo = await getBuffer(`http://api.lolhuman.xyz/api/tiktokmusic?apikey=14b8e6542f9079f0b18d72a6&url=${ini_link}`)
   await dha.sendMessage(from, ayo, audio, { mimetype: Mimetype.mp4Audio, quoted: mek })
   break
      case 'antibug':
@@ -4357,7 +4357,7 @@ xinz.sendVideo(from, yoi, capt, msg)
     if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
                     if (args.length == 0) return reply(`Example: ${prefix + command} loli kawaii`)
                     query = args.join(" ")
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/gsearch?apikey=${lol.key}&query=${query}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/gsearch?apikey=14b8e6542f9079f0b18d72a6&query=${query}`)
                     get_result = get_result.result
                     ini_txt = 'Google Search : \n'
                     for (var x of get_result) {
@@ -4438,35 +4438,35 @@ _*Tunggu Proses Upload Media......*_`
              break
             case 'pilihan1':
             if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
-                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=${lol.key}&query=Manhua`)
+                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=14b8e6542f9079f0b18d72a6&query=Manhua`)
                     ini_url = ini_url.result
                     ini_buffer = await getBuffer(ini_url)
                     await dha.sendMessage(from, ini_buffer, image, { quoted: mek, thumbnail: miku })
                     break
                     case 'pilihan3':
             if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
-                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=${lol.key}&query=Kazuma`)
+                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=14b8e6542f9079f0b18d72a6&query=Kazuma`)
                     ini_url = ini_url.result
                     ini_buffer = await getBuffer(ini_url)
                     await dha.sendMessage(from, ini_buffer, image, { quoted: mek, thumbnail: miku })
                     break
                     case 'pilihan4':
             if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
-                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=${lol.key}&query=L Lawliet`)
+                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=14b8e6542f9079f0b18d72a6&query=L Lawliet`)
                     ini_url = ini_url.result
                     ini_buffer = await getBuffer(ini_url)
                     await dha.sendMessage(from, ini_buffer, image, { quoted: mek, thumbnail: miku})
                     break
                     case 'pilihan5':
             if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
-                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=${lol.key}&query=Light Yagami`)
+                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=14b8e6542f9079f0b18d72a6&query=Light Yagami`)
                     ini_url = ini_url.result
                     ini_buffer = await getBuffer(ini_url)
                     await dha.sendMessage(from, ini_buffer, image, { quoted: mek, thumbnail: miku })
                     break
                     case 'pilihan6':
             if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
-                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=${lol.key}&query=Aqua Konosuba`)
+                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=14b8e6542f9079f0b18d72a6&query=Aqua Konosuba`)
                     ini_url = ini_url.result
                     ini_buffer = await getBuffer(ini_url)
                     await dha.sendMessage(from, ini_buffer, image, { quoted: mek, thumbnail: miku })
@@ -4475,10 +4475,10 @@ _*Tunggu Proses Upload Media......*_`
             if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
                     if (args.length == 0) return reply(`Contoh: ${prefix + command} Patrick`)
                     query = args.join(" ")
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/stickerwa?apikey=${lol.key}&query=${query}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/stickerwa?apikey=14b8e6542f9079f0b18d72a6&query=${query}`)
                     get_result = get_result.result[0].stickers
                     for (var x of get_result) {
-                        ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/convert/towebp?apikey=${lol.key}&img=${x}`)
+                        ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/convert/towebp?apikey=14b8e6542f9079f0b18d72a6&img=${x}`)
                         await dha.sendMessage(from, ini_buffer, sticker)
                     }
                     break
@@ -4486,7 +4486,7 @@ case 'harcos':
 if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
                     if (args.length == 0) return reply(`Masukan Textnya!`)
 					query = args.join(" ")
-					buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/hartacustom?apikey=${lol.key}&text=${body.slice(7)}`)
+					buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/hartacustom?apikey=14b8e6542f9079f0b18d72a6&text=${body.slice(7)}`)
 					cap = `${query}`
 					dha.sendMessage(from, buffer, image, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: cap})
 					break
@@ -4506,7 +4506,7 @@ if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* unt
 		if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
 				query = args.join(" ")
 				reply('wait bro...')
-				buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/hartatahta?apikey=${lol.key}&text=${body.slice(7)}`)
+				buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/hartatahta?apikey=14b8e6542f9079f0b18d72a6&text=${body.slice(7)}`)
 				cap = `Harta Tahta ${query}`
 				dha.sendMessage(from, buffer, image, {quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: cap })
 				break
@@ -4597,7 +4597,7 @@ Pilih Menu Dibawah Ini!`
 					if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
                     if (args.length == 0) return reply(`Masukan Textnya!`)
 					query = args.join(" ")
-					buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/hartacustom?apikey=${lol.key}&text=${body.slice(7)}`)
+					buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/hartacustom?apikey=14b8e6542f9079f0b18d72a6&text=${body.slice(7)}`)
 					cap = `${query}`
 					dha.sendMessage(from, buffer, image, { quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: cap})
 					break
@@ -4656,7 +4656,7 @@ Pilih Menu Dibawah Ini!`
 				if (args.length < 1) return reply('Url png/jpg mana kak')
 				query = args.join(" ")
 				reply('wait bro...')
-				buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/hartatahta?apikey=${lol.key}&text=${body.slice(7)}`)
+				buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/hartatahta?apikey=14b8e6542f9079f0b18d72a6&text=${body.slice(7)}`)
 				cap = `Harta Tahta ${query}`
 				dha.sendMessage(from, buffer, image, {quoted: mek, contextInfo: { forwardingScore: 508, isForwarded: true}, caption: cap })
 				
@@ -4761,7 +4761,7 @@ Link : ${i.url}\n`
        if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
               if (!q) return reply(`Example: ${prefix + command} https://t.me/addstickers/LINE_Menhera_chan_ENG`)
               replyFake(mess.wait)
-              ini_url = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=${lol.key}&url=${args[0]}`)
+              ini_url = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=14b8e6542f9079f0b18d72a6&url=${args[0]}`)
               ini_sticker = ini_url.result.sticker
               reply('Sending '+ ini_sticker.length +' stickers...')
               for (sticker_ in ini_sticker) {
@@ -4813,7 +4813,7 @@ ${descOwner ? `*Desc diubah oleh* : @${descOwner.split('@')[0]}` : '*Desc diubah
              break
              case 'tebakcharanime': // case by riu
                     if (tebakanime.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebakchara?apikey=${lol.key}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebakchara?apikey=14b8e6542f9079f0b18d72a6`)
                     get_result = get_result.result
                     ini_image = get_result.image
                     jawaban = get_result.name
@@ -5006,7 +5006,7 @@ break
                if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
 if (args.length == 0) return reply(`Example: ${prefix + command} Redmi 5A`)
 query = args.join(" ")
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/gsmarena?apikey=${lol.key}&query=${query}`)
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/gsmarena?apikey=14b8e6542f9079f0b18d72a6&query=${query}`)
 get_result = get_result.result
 ini_txt = `❏「 *INFORMATION* 」❏\n\n`
 ini_txt += `◪› Title : ${get_result.phone_name}\n`
@@ -5087,7 +5087,7 @@ buttons = [{buttonId:`${prefix}prefixnofound`,buttonText:{displayText:'⋮☰ MA
               if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
                     if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
                     query = args.join(" ")
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/anime?apikey=${lol.key}&query=${query}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/anime?apikey=14b8e6542f9079f0b18d72a6&query=${query}`)
                     get_result = get_result.result
                     ini_txt = `Id : ${get_result.id}\n`
                     ini_txt += `Id MAL : ${get_result.idMal}\n`
@@ -5168,7 +5168,7 @@ buttons = [{buttonId:`${prefix}menu`,buttonText:{displayText:'MENU'},type:1}]
              if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
              num = `${sender.split("@")[0]}@s.whatsapp.net`
              
-v2 = await getBuffer(`https://api.lolhuman.xyz/api/meme/memeindo?apikey=${lol.key}`)
+v2 = await getBuffer(`https://api.lolhuman.xyz/api/meme/memeindo?apikey=14b8e6542f9079f0b18d72a6`)
 mhan2 = await dha.prepareMessage(from, v2, image)
 gbutsan = [
   {buttonId: `${prefix}meme`, buttonText: {displayText: '💎NEXT'}, type: 1}
@@ -5209,7 +5209,7 @@ await dha.sendMessage(from, gbuttonan, MessageType.buttonsMessage, {
    if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
    num = `${sender.split("@")[0]}@s.whatsapp.net`
    
-v2 = await getBuffer(`https://api.lolhuman.xyz/api/meme/darkjoke?apikey=${lol.key}`)
+v2 = await getBuffer(`https://api.lolhuman.xyz/api/meme/darkjoke?apikey=14b8e6542f9079f0b18d72a6`)
 mhan2 = await dha.prepareMessage(from, v2, image)
 gbutsan = [
   {buttonId: `${prefix}darkjoke`, buttonText: {displayText: '💎NEXT'}, type: 1}
@@ -5229,7 +5229,7 @@ await dha.sendMessage(from, gbuttonan, MessageType.buttonsMessage, {
    if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
    num = `${sender.split("@")[0]}@s.whatsapp.net`
    if (isGroup) return reply(`Karna Ini Fitur Hentai, Mohon Maaf Gambarnya Hanya Bisa Lewat Chat Pribadi!`)
-v2 = await getBuffer(`http://api.lolhuman.xyz/api/random/nsfw/${command}?apikey=${lol.key}`)
+v2 = await getBuffer(`http://api.lolhuman.xyz/api/random/nsfw/${command}?apikey=14b8e6542f9079f0b18d72a6`)
 mhan2 = await dha.prepareMessage(`${sender.split("@")[0]}@s.whatsapp.net`, v2, image, { thumbnail: miku })
 gbutsan = [
   {buttonId: `${prefix}hentai`, buttonText: {displayText: '💎NEXT'}, type: 1}
@@ -5346,7 +5346,7 @@ await dha.sendMessage(from, gbuttonan, MessageType.buttonsMessage, {contextInfo:
    if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
    num = `${sender.split("@")[0]}@s.whatsapp.net`
 if (isGroup) return reply(`Karna Ini Fitur Hentai, Mohon Maaf Gambarnya Hanya Bisa Lewat Chat Pribadi!`)
-v2 = await getBuffer(`http://api.lolhuman.xyz/api/random2/${command}?apikey=${lol.key}`)
+v2 = await getBuffer(`http://api.lolhuman.xyz/api/random2/${command}?apikey=14b8e6542f9079f0b18d72a6`)
 mhan2 = await dha.prepareMessage(`${sender.split("@")[0]}@s.whatsapp.net`, v2, image, { thumbnail: miku })
 gbutsan = [
   {buttonId: `${prefix}yuri`, buttonText: {displayText: 'Try Again'}, type: 1}
@@ -5436,7 +5436,7 @@ await dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, gbuttonan, Messa
    if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
    num = `${sender.split("@")[0]}@s.whatsapp.net`
    if (isGroup) return reply(`Karna Ini Fitur Hentai, Mohon Maaf Gambarnya Hanya Bisa Lewat Chat Pribadi!`)
-v2 = await getBuffer(`http://api.lolhuman.xyz/api/random2/${command}?apikey=${lol.key}`)
+v2 = await getBuffer(`http://api.lolhuman.xyz/api/random2/${command}?apikey=14b8e6542f9079f0b18d72a6`)
 mhan2 = await dha.prepareMessage(`${sender.split("@")[0]}@s.whatsapp.net`, v2, image, { thumbnail: miku })
 gbutsan = [
   {buttonId: `${prefix}cum`, buttonText: {displayText: '💎NEXT'}, type: 1}
@@ -5455,7 +5455,7 @@ await dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, gbuttonan, Messa
    case 'siapaaku':{
                 if (!isGroup)return reply(mess.OnlyGrup)
                 if (game.isSiapaAku(from, buriq)) return reply(`Masih ada soal yang belum di selesaikan`)
-                let anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/siapaaku?apikey=${lol.key}`)
+                let anu = await fetchJson(`http://api.lolhuman.xyz/api/tebak/siapaaku?apikey=14b8e6542f9079f0b18d72a6`)
                 let anih = anu.result.answer.toLowerCase()
                 game.addburiq(from, anih, gamewaktu, buriq)
                 const petunjuk = anu.result.answer.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -5466,7 +5466,7 @@ await dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, gbuttonan, Messa
    if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
    num = `${sender.split("@")[0]}@s.whatsapp.net`
    if (isGroup) return reply(`Karna Ini Fitur Hentai, Mohon Maaf Gambarnya Hanya Bisa Lewat Chat Pribadi!`)
-v2 = await getBuffer(`http://api.lolhuman.xyz/api/random2/wallpaper?apikey=${lol.key}`)
+v2 = await getBuffer(`http://api.lolhuman.xyz/api/random2/wallpaper?apikey=14b8e6542f9079f0b18d72a6`)
 mhan2 = await dha.prepareMessage(`${sender.split("@")[0]}@s.whatsapp.net`, v2, image, { thumbnail: miku })
 gbutsan = [
   {buttonId: `${prefix}wallpaper`, buttonText: {displayText: '💎NEXT'}, type: 1}
@@ -5486,7 +5486,7 @@ await dha.sendMessage(`${sender.split("@")[0]}@s.whatsapp.net`, gbuttonan, Messa
    if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
    num = `${sender.split("@")[0]}@s.whatsapp.net`
    if (isGroup) return reply(`Karna Ini Fitur Hentai, Mohon Maaf Gambarnya Hanya Bisa Lewat Chat Pribadi!`)
-v2 = await getBuffer(`http://api.lolhuman.xyz/api/random2/${command}?apikey=${lol.key}`)
+v2 = await getBuffer(`http://api.lolhuman.xyz/api/random2/${command}?apikey=14b8e6542f9079f0b18d72a6`)
 mhan2 = await dha.prepareMessage(`${sender.split("@")[0]}@s.whatsapp.net`, v2, image, { thumbnail: miku })
 gbutsan = [
   {buttonId: `${prefix}trap`, buttonText: {displayText: '💎NEXT'}, type: 1}
@@ -5560,7 +5560,7 @@ break
   if (!isRegister) return reply("Kamu Belom Terdaftar Kak!\nketik *!daftarnya* untuk mendaftar")
    num = `${sender.split("@")[0]}@s.whatsapp.net`
    
-v2 = await getBuffer(`http://api.lolhuman.xyz/api/random/nsfw/${command}?apikey=${lol.key}`)
+v2 = await getBuffer(`http://api.lolhuman.xyz/api/random/nsfw/${command}?apikey=14b8e6542f9079f0b18d72a6`)
 mhan2 = await dha.prepareMessage(from, v2, image, { thumbnail: miku })
 gbutsan = [
   {buttonId: `${prefix}ecchi`, buttonText: {displayText: '💎NEXT'}, type: 1}
